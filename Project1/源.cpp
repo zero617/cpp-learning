@@ -1,4 +1,6 @@
 #include <iostream>
+#define _USE_MATH_DEFINES
+#include <math.h>
 using namespace std;
 
 class circle {
@@ -6,7 +8,7 @@ private:
     double radius, area;
 public:
     void setRadius() { cin >> radius; }
-    void setArea() { area = PI * radius * radius; }
+    void setArea() { area = M_PI * radius * radius; }
     void output() { cout << "半径是" << radius << "，面积是" << area << endl; }
 };
 
