@@ -3,11 +3,11 @@ using namespace std;
 
 int max(int a,int b,int c=1) 
 { 
-    if (a>b)
-        if (a<c) return c;
-        else return a;
-    else if(b>c) return b;
-        else return c;
+    if (a<b)
+        a=b;
+    if (a<c)
+        a=c;
+    return a;
 }
 
 int main()
@@ -29,11 +29,11 @@ using namespace std;
 
 int max(int a,int b,int c) 
 { 
-    if (a>b)
-        if (a<c) return c;
-        else return a;
-    else if(b>c) return b;
-        else return c;
+    if (a<b)
+        a=b;
+    if (a<c)
+        a=c;
+    return a;
 }
 
 int main()
