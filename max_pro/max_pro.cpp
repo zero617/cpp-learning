@@ -2,12 +2,12 @@
 #include<vector>
 using namespace std;
 
-class find_max
+class Max
 {
         int len,ma,mi;   
         vector<int> array;
     public:
-        find_max()
+        Max()
         {
             len=0;
             ma=0;
@@ -20,7 +20,7 @@ class find_max
         void display();
 };
 
-void find_max::input()
+void Max::input()
 {
     int number;
     while (1) {
@@ -31,12 +31,12 @@ void find_max::input()
     }
 }
 
-void find_max::size()
+void Max::size()
 {
     len = array.size();
 }
 
-void find_max::max()
+void Max::max()
 {
     ma=array[0];
     for(int x=1;x<array.size();x++) 
@@ -47,7 +47,7 @@ void find_max::max()
     }
 }
 
-void find_max::min()
+void Max::min()
 {
     mi=array[0];
     for(int x=1;x<array.size();x++) 
@@ -58,15 +58,15 @@ void find_max::min()
     }
 }
 
-void find_max::display()
+void Max::display()
 {
-    cout << "您输入了" << len << "个数" << "。" << endl;
-    cout << "最大值是" << ma << "，最小值是" << mi << "。" << endl;
+    cout << "您输入了" << len << "个数"  << endl;
+    cout << "最大值是" << ma << "最小值是" << mi << "。" << endl;
 }
 
 int main()
 {
-    find_max t;
+    Max t;
     t.input();    
     t.size();
     t.max();
