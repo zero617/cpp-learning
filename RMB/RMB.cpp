@@ -12,11 +12,11 @@ public:
         jiao = b;
         fen = c;
     }
-    friend istream &operator>>(istream &, RMB &);
-    friend ostream &operator<<(ostream &, RMB &);
-    RMB operator+(RMB &y2);
-    RMB operator-(RMB &y2);
-}
+    friend istream& operator>>(istream&, RMB&);
+    friend ostream& operator<<(ostream&, RMB&);
+    RMB operator+(RMB& y2);
+    RMB operator-(RMB& y2);
+};
 
 istream &operator>>(istream &ipt, RMB &y)
 {

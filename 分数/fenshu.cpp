@@ -7,8 +7,8 @@ class fenshu
 public:
     fenshu(int x=0,int y=0){fenzi=x;fenmu=y;}
     friend fenshu operator+(fenshu f1,fenshu f2);
-    friend ostream& operator<<( ostream& out, fenshu& t);
-    friend istream& operator<<( istream& in, fenshu& t);
+    friend ostream & operator <<( ostream& out, fenshu& t);
+    friend istream & operator >>( istream& in, fenshu& t);
 };
 
 fenshu operator +(fenshu f1,fenshu f2) {
@@ -17,15 +17,16 @@ fenshu operator +(fenshu f1,fenshu f2) {
     f2.fenzi=f2.fenzi*f1.fenmu;
     f.fenzi=f1.fenzi+f2.fenzi;
     f.fenmu=f1.fenmu+f2.fenmu;
-    }
+    return f;
+ }
 
-ostream& operator<<(ostream& out,fenshu t)
+ostream& operator<<(ostream& out,fenshu &t)
 {
     out<<t.fenzi<<"/"<<t.fenmu<<endl;
     return out;
 }
 
-istream& operator<<(istream& in,fenshu t)
+istream& operator>>(istream& in,fenshu &t)
 {
     in>>t.fenzi>>t.fenmu;
     return in;
