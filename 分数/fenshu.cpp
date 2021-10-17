@@ -9,6 +9,7 @@ public:
     friend fenshu operator+(fenshu f1,fenshu f2);
     friend ostream & operator <<( ostream& out, fenshu& t);
     friend istream & operator >>( istream& in, fenshu& t);
+    int judge();
 };
 
 fenshu operator +(fenshu f1,fenshu f2) {
@@ -18,7 +19,7 @@ fenshu operator +(fenshu f1,fenshu f2) {
     f.fenzi=f1.fenzi+f2.fenzi;
     f.fenmu=f1.fenmu+f2.fenmu;
     return f;
- }
+}
 
 ostream& operator<<(ostream& out,fenshu &t)
 {
@@ -32,12 +33,24 @@ istream& operator>>(istream& in,fenshu &t)
     return in;
 }
 
+int fenshu::judge()
+{
+    if(fenmu == 0)
+    {
+        cerr<<"error! The fenmu can't be zero"<<endl;
+        return 1;
+    }
+    else return 0;
+}
+
 int main(){
     fenshu f1(1,2),f2(2,3),f3,f4,f5;
     cout<<f1<<f2;
     f3=f1+f2;
     cout<< f3<<endl;
     cin>>f4>>f5;
+    while(f4.judge() || f5.judge())
+        cin>>f4>>f5;
     f3=f4+f5;
     cout<<f3;
     return 0;
