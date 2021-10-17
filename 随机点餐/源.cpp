@@ -31,12 +31,8 @@ void Candian::display()
     app.close();
 }
 
-int main()
+void disptime()
 {
-flag:
-    Candian a;
-    //    a.time();
-
     // 基于当前系统的当前日期/时间
     time_t now = time(0);
 
@@ -53,7 +49,7 @@ flag:
     {
         cout << "今天中午吃:";
     }
-    else if ((ltm->tm_hour >= 15 && ltm->tm_hour <=24) || ltm->tm_hour < 3)
+    else if ((ltm->tm_hour >= 15 && ltm->tm_hour <= 24) || ltm->tm_hour < 3)
     {
         cout << "今天晚上吃:";
     }
@@ -85,6 +81,15 @@ flag:
         app << "今天早上吃:";
     }
     app.close();
+}
+
+int main()
+{
+flag:
+    Candian a;
+    //    a.time();
+
+    disptime();
 
     unsigned seed; // Random generator seed
     // Use the time function to get a "seed” value for srand
