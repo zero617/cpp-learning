@@ -7,27 +7,44 @@ using namespace std;
 
 class Candian
 {
-    static char array[10][7];
+    static char caidan[100][10];
 
 public:
     void display();
-    //void time();
+    void getcaidan();
 };
 
-char Candian::array[10][7] = {"鸡排饭", "烤肉饭", "煎肉饭", "烫饭", "面"};
+char Candian::caidan[][10] = {};
+
+void Candian::getcaidan(){
+    int i;
+    cout << "\n";
+    cout << "如果输入完成请按\"ESC\"" << endl;
+    for(i=0; ;i++){
+        if(i == 0)
+            {cout << "请输入要添加的餐点,按\"ENTER\"确认输入：" << endl;}
+        //cin.getline(caidan[i] , 10);
+        cin >> caidan[i];
+        if(getch() == 27)
+            break;
+    }
+    for(int j=0;j<=i;j++)
+        cout << caidan[j] << "\t";
+    cout << "\n";
+}
 
 void Candian::display()
 {
 
     int number = rand() % 5 + 1;
-    cout << array[number - 1] << endl;
+    cout << caidan[number - 1] << endl;
     fstream app("results.txt", ios::app);
     if (!app)
     {
         cout << "无法打开results.txt\n";
         exit(1);
     }
-    app << array[number - 1] << endl;
+    app << caidan[number - 1] << endl;
     app.close();
 }
 
@@ -85,10 +102,16 @@ void disptime()
 
 int main()
 {
-flag:
     Candian a;
-    //    a.time();
 
+    cout << "添加菜单请按\"A\":" << endl;
+    cout << "开始随机点餐请按\"ENTER\"" << endl;
+if( getch() == 97 )
+{
+    a.getcaidan();
+}
+
+flag:
     disptime();
 
     unsigned seed; // Random generator seed
@@ -99,8 +122,8 @@ flag:
     // Now generate and print
     a.display();
 
-    cout << "如果想更换请按\"ENTER\":" << endl;
-    cout << "如果想结束了请同时按\"CTRL\"+\"C\"" << endl;
+    cout << "如果想更换随机结果请按\"ENTER\":" << endl;
+    cout << "如果想结束了请按\"ESC\"" << endl;
     if (getch() == 13)
         goto flag;
     //system("pause");
