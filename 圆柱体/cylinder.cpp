@@ -4,22 +4,22 @@ using namespace std;
 
 class Cylinder
 {
-    float radius, highlight;
+    float radius, hight;
 
 public:
     Cylinder(float r = 1, float h = 10)
     {
         radius = r;
-        highlight = h;
+        hight = h;
     };
     float volume()
     {
-        return (2 * M_PI * radius * radius * highlight);
+        return (2 * M_PI * radius * radius * hight);
     };
     void display()
     {
         cout << "radius: " << radius << "\t"
-             << "highlight: " << highlight << "\t"
+             << "hight: " << hight << "\t"
              << "volume: " << volume() << endl;
     };
 };
@@ -27,7 +27,7 @@ public:
 int main()
 {
     Cylinder t;
-    t.volume();
+    //t.volume();
     t.display();
     return 0;
 }
